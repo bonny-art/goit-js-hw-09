@@ -1,0 +1,17 @@
+button[data-start],
+button[data-stop] {
+  width: 150px;
+  height: 50px;
+  background-color: #333;
+  font-size: 20px;
+  color: #fff;
+  border: 1px solid black;
+  border-radius: 50px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
