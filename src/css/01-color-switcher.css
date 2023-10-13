@@ -7,8 +7,18 @@ button[data-stop] {
   color: #fff;
   border: 1px solid black;
   border-radius: 50px;
-  margin-right: 10px;
   cursor: pointer;
+
+  position: absolute;
+  top: calc(50% - 25px);
+}
+
+button[data-start] {
+  left: calc(50% - 160px);
+}
+
+button[data-stop] {
+  right: calc(50% - 160px);
 }
 
 button[disabled] {
