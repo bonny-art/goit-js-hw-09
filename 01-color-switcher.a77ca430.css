@@ -1,0 +1,2 @@
+button[data-start],button[data-stop]{width:150px;height:50px;color:#fff;cursor:pointer;background-color:#333;border:1px solid #000;border-radius:50px;font-size:20px;position:absolute;top:calc(50% - 25px)}button[data-start]{left:calc(50% - 160px)}button[data-stop]{right:calc(50% - 160px)}button[disabled]{opacity:.5;cursor:default}
+/*# sourceMappingURL=01-color-switcher.a77ca430.css.map */
