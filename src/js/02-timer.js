@@ -44,6 +44,7 @@ const timer = {
 
       if (Date.now() + 1000 > endTime) {
         clearInterval(this.intervalId);
+        Notify.success("You're in the future!");
       }
     }, 1000);
   },
