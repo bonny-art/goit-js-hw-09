@@ -38,19 +38,4 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-function startCountDown() {
-  timer.start();
-}
-
-function addLeadingZero(value) {
-  return String(value).padStart(2, '0');
-}
-
-function updateTimerOutput({ days, hours, minutes, seconds }) {
-  el.outputDays.textContent = days;
-  el.outputHours.textContent = addLeadingZero(hours);
-  el.outputMinutes.textContent = addLeadingZero(minutes);
-  el.outputSeconds.textContent = addLeadingZero(seconds);
-}
-
 export { getRandomHexColor, runColorChange, stopColorChange, convertMs };
