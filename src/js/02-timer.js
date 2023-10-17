@@ -31,24 +31,31 @@ const datePicker = flatpickr('#datetime-picker', options);
 el.startBtn.disabled = true;
 el.startBtn.addEventListener('click', startCountDown);
 
-const timer = {
-  intervalId: null,
+class Timer {
+  constructor({ onTick }) {
+    this.intervalId = null;
+    this.onTick = onTick;
+  }
 
   start() {
     el.startBtn.disabled = true;
     const endTime = datePicker.selectedDates[0];
-    updateTimerOutput(convertMs(endTime - Date.now()));
+    this.onTick(convertMs(endTime - Date.now()));
 
     this.intervalId = setInterval(() => {
-      updateTimerOutput(convertMs(endTime - Date.now()));
+      this.onTick(convertMs(endTime - Date.now()));
 
       if (Date.now() + 1000 > endTime) {
         clearInterval(this.intervalId);
         Notify.success("You're in the future!");
       }
     }, 1000);
-  },
-};
+  }
+}
+
+const timer = new Timer({
+  onTick: updateTimerOutput,
+});
 
 function startCountDown() {
   timer.start();
