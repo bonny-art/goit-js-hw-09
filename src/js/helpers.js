@@ -4,21 +4,6 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-function runColorChange(evt) {
-  evt.currentTarget.disabled = true;
-  this.btnStop.disabled = false;
-
-  intervalID = setInterval(() => {
-    this.body.style.backgroundColor = `${getRandomHexColor()}`;
-  }, 1000);
-}
-
-function stopColorChange(evt) {
-  evt.currentTarget.disabled = true;
-  this.btnStart.disabled = false;
-  clearInterval(intervalID);
-}
-
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -38,4 +23,4 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-export { getRandomHexColor, runColorChange, stopColorChange, convertMs };
+export { getRandomHexColor, convertMs };
