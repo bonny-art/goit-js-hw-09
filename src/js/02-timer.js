@@ -71,3 +71,5 @@ function updateTimerOutput({ days, hours, minutes, seconds }) {
   el.outputMinutes.textContent = addLeadingZero(minutes);
   el.outputSeconds.textContent = addLeadingZero(seconds);
 }
+
+console.log('hello');
