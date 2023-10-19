@@ -10,8 +10,12 @@ function createPromices(e) {
 
   for (let i = 0; i < amount.value; i += 1) {
     createPromise(i + 1, Number(delay.value) + Number(step.value) * i)
-      .then(val => Notify.success(val))
-      .catch(err => Notify.failure(err));
+      .then(({ position, delay }) =>
+        Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`)
+      )
+      .catch(({ position, delay }) =>
+        Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`)
+      );
   }
 }
 
@@ -20,9 +24,9 @@ function createPromise(position, delay) {
     const shouldResolve = Math.random() > 0.3;
     setTimeout(() => {
       if (shouldResolve) {
-        res(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        res({ position, delay });
       } else {
-        rej(`❌ Rejected promise ${position} in ${delay}ms`);
+        rej({ position, delay });
       }
     }, delay);
   });
